@@ -42,7 +42,10 @@
                                     <td>Category</td>
                                     <td>
                                         <select name="category_id" class="form-control">
-
+                                            <option value="0">-Pilih Data -</option>
+                                            @foreach ($category as $cat)
+                                                <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+                                            @endforeach
                                         </select>
                                     </td>
                                 </tr>
