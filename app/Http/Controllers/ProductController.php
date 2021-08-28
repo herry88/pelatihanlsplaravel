@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $product = Product::all();
+        return view('layouts.product.index', compact('product'));
     }
 
     /**
@@ -25,6 +28,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $category = Category::all();
+        return view('layouts.product.create', compact('category'));
     }
 
     /**
@@ -35,7 +40,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //fungsi untuk simpan data
+        $pr = new Product();
+        $pr->name_product = $request->input('name_product');
+        $pr->description = $request->input('description');
+        $pr->price = $request->input('price');
+        $pr->stock = $request->input('stock');
+        $pr->category_id = $request->input('category_id');
+        if($pr->save()){
+            return redirect()->route('product.index');
+        } else{
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -55,9 +72,12 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
+        $category = Category::all();
+        $product = Product::find($id);
+        return view('layouts.product.edit',compact('category','product'));
     }
 
     /**
@@ -67,9 +87,21 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        //function update product
+        $pr = Product::find($id);
+        $pr->name_product = $request->input('name_product');
+        $pr->description = $request->input('description');
+        $pr->price = $request->input('price');
+        $pr->stock = $request->input('stock');
+        $pr->category_id = $request->input('category_id');
+        if($pr->save()){
+            return redirect()->route('product.index');
+        } else{
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -78,8 +110,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        //function untuk delete
+        $p = Product::find($id);
+        $p->delete();
+        return redirect()->route('product.index');
     }
 }
