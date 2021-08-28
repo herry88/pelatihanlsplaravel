@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 //rute baru
 Route::resource('category', App\Http\Controllers\CategoryController::class);
+
+
