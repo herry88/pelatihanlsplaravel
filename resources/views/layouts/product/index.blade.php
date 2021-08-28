@@ -40,6 +40,7 @@
                                             <td>{{ $pr->stock }}</td>
                                             <td>{{ $pr->category->name_category }}</td>
                                             <td>
+                                                <a href="{{route('product.edit', $pr->id)}}" class="btn btn-outline-warning">Edit</a>
                                                 <form action="{{route('product.destroy', $pr->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')

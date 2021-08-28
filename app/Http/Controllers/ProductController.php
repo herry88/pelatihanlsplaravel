@@ -72,9 +72,12 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
+        $category = Category::all();
+        $product = Product::find($id);
+        return view('layouts.product.edit',compact('category','product'));
     }
 
     /**
