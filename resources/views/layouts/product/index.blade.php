@@ -38,8 +38,15 @@
                                             <td>{{ $pr->description }}</td>
                                             <td>{{ $pr->price }}</td>
                                             <td>{{ $pr->stock }}</td>
-                                            <td>{{ $pr->category_id }}</td>
-                                            <td>&nbsp;</td>
+                                            <td>{{ $pr->category->name_category }}</td>
+                                            <td>
+                                                <form action="{{route('product.destroy', $pr->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                                                </form>
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>

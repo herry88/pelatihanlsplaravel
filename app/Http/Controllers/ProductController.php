@@ -40,7 +40,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //fungsi untuk simpan data
+        $pr = new Product();
+        $pr->name_product = $request->input('name_product');
+        $pr->description = $request->input('description');
+        $pr->price = $request->input('price');
+        $pr->stock = $request->input('stock');
+        $pr->category_id = $request->input('category_id');
+        if($pr->save()){
+            return redirect()->route('product.index');
+        } else{
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -83,8 +95,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        //function untuk delete
+        $p = Product::find($id);
+        $p->delete();
+        return redirect()->route('product.index');
     }
 }
