@@ -30,15 +30,18 @@
                                 </tr>
                                 <tr>
                                     <td>Description</td>
-                                    <td><input type="text" name="description" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->description }}" name="description"
+                                            class="form-control" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Stock</td>
-                                    <td><input type="text" name="stock" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->stock }}" name="stock" class="form-control"
+                                            id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Price</td>
-                                    <td><input type="text" name="price" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->price }}" name="price" class="form-control"
+                                            id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Category</td>
@@ -46,7 +49,13 @@
                                         <select name="category_id" class="form-control">
                                             <option value="0">-Pilih Data -</option>
                                             @foreach ($category as $cat)
-                                                <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+                                                @if ($product->category_id == $cat->id)
+                                                    <option value="{{ $cat->id }}" selected>{{ $cat->name_category }}</option>
+                                                @else
+                                                    <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+
+
+                                                @endif
                                             @endforeach
                                         </select>
                                     </td>
