@@ -41,7 +41,9 @@
                                 <tr>
                                     <td>Category</td>
                                     <td>
-                                        
+                                        <select name="category_id" class="form-control">
+
+                                        </select>
                                     </td>
                                 </tr>
 
