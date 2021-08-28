@@ -19,12 +19,14 @@
                         <h2>Halaman Add Data Product</h2>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('product.store') }}" method="post">
+                        <form action="{{ route('product.update', $product->id) }}" method="post">
                             @csrf
+                            @method('PUT')
                             <table class="table table-bordered">
                                 <tr>
                                     <td>Name Product</td>
-                                    <td><input type="text" name="name_product" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->name_product }}" name="name_product"
+                                            class="form-control" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Description</td>
