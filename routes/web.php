@@ -20,13 +20,11 @@ Route::get('/', function () {
 //rute baru
 Route::resource('category', App\Http\Controllers\CategoryController::class);
 
-<<<<<<< HEAD
 
-=======
 //rute product
 Route::resource('product', App\Http\Controllers\ProductController::class);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 519c9c4cdc6b25c42a0206160035d2a654e2e7e6
+
