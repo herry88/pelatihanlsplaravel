@@ -53,6 +53,8 @@ class ProductController extends Controller
             return redirect()->back();
         }
 
+
+
     }
 
     /**
@@ -104,5 +106,6 @@ class ProductController extends Controller
         $p = Product::find($id);
         $p->delete();
         return redirect()->route('product.index');
+
     }
 }

@@ -1,13 +1,13 @@
 @extends('master')
 
 @section('title')
-    <title>productPage</title>
+    <title>Edit Category Page</title>
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Add Category</h1>
+            <h1>Edit Category</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="#">Home</a></div>
             </div>
@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Halaman Add Data Product</h2>
+                        <h2>Halaman Edit Data Product</h2>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('product.update', $product->id) }}" method="post">
@@ -30,28 +30,39 @@
                                 </tr>
                                 <tr>
                                     <td>Description</td>
-                                    <td><input type="text" name="description" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->description }}" name="description"
+                                            class="form-control" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Stock</td>
-                                    <td><input type="text" name="stock" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->stock }}" name="stock"
+                                            class="form-control" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Price</td>
-                                    <td><input type="text" name="price" class="form-control" id=""></td>
+                                    <td><input type="text" value="{{ $product->price }}" name="price"
+                                            class="form-control" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Category</td>
                                     <td>
                                         <select name="category_id" class="form-control">
-                                            <option value="0">-Pilih Data -</option>
+                                            <option value="0">-Pilih Data-</option>
                                             @foreach ($category as $cat)
-                                                <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+                                                @if ($product->category_id == $cat->id)
+                                                    <option value="{{ $cat->id }}" selected>{{ $cat->name_category }}
+                                                    </option>
+
+                                                @else
+                                                    <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+
+                                                @endif
+
+
                                             @endforeach
                                         </select>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td><button type="submit" class="btn btn-primary">Save</button></td>

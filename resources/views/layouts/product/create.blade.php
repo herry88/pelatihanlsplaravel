@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    <title>productPage</title>
+    <title>Category Page</title>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Halaman Add Data Product</h2>
+                        <h2>Halaman Add Data Category</h2>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('product.store') }}" method="post">
@@ -42,14 +42,14 @@
                                     <td>Category</td>
                                     <td>
                                         <select name="category_id" class="form-control">
-                                            <option value="0">-Pilih Data -</option>
+                                            <option value="0">-Pilih Data-</option>
                                             @foreach ($category as $cat)
                                                 <option value="{{ $cat->id }}">{{ $cat->name_category }}</option>
+
                                             @endforeach
                                         </select>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td><button type="submit" class="btn btn-primary">Save</button></td>
