@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//route admin
+Route::resource('home',App\Http\Controllers\HomeController::class);
+
 //rute baru
 Route::resource('category', App\Http\Controllers\CategoryController::class);
 
@@ -25,6 +28,9 @@ Route::resource('category', App\Http\Controllers\CategoryController::class);
 Route::resource('product', App\Http\Controllers\ProductController::class);
 
 Auth::routes();
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
