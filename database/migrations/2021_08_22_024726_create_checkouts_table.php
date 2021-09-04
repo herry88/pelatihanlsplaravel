@@ -15,6 +15,11 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('total');
+            $table->bigInteger('user_id');
+            $table->bigInteger('bayar');
+            $table->bigInteger('kembalian');
+            $table->string('metode_pembayaran');
             $table->timestamps();
         });
     }

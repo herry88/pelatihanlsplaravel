@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $d['produks'] = Product::orderBy("name_product", "ASC")->get();
+        $d['carts'] = Order::where('user_id', \Auth::user()->id)->where('status', 1)->orderBy("id", "DESC")->get();
+        $d['totalCarts'] = Order::where("user_id", \Auth::user()->id)->where("status", 1)->sum('sub_total');
+        return view("layouts.cart.index", $d);
     }
 
     /**
