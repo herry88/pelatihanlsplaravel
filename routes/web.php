@@ -21,11 +21,11 @@ Route::get('/', function () {
 Route::resource('home',App\Http\Controllers\HomeController::class);
 
 //rute baru
-Route::resource('category', App\Http\Controllers\CategoryController::class);
+Route::resource('category', App\Http\Controllers\CategoryController::class)->middleware('auth');
 
 
 //rute product
-Route::resource('product', App\Http\Controllers\ProductController::class);
+Route::resource('product', App\Http\Controllers\ProductController::class)->middleware('auth');
 
 Auth::routes();
 
