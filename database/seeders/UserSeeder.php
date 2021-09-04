@@ -15,21 +15,21 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        $user = [
+        $users = [
             [
                 'name' => 'Admin',
-                'email' => 'kasir@unsurya.com',
-                'level' => 'admin',
-                'password' => bcrypt('123456'),
+                'email' => 'admin@seeder.com',
+                'level'=>'admin',
+                'password' => bcrypt('12344321'),
             ],
             [
-                'name' => 'User',
-                'email' => 'kasir@unsurya.com',
-                'level' => 'kasir',
-                'password' => bcrypt('123456'),
-            ],
+                'name' => 'kasir',
+                'email' => 'kasir@seeder.com',
+                'level'=>'kasir',
+                'password' => bcrypt('43211234'),
+            ]
         ];
-        foreach ($user as $key => $value) {
+        foreach ($users as $key => $value) {
             User::create($value);
         }
     }

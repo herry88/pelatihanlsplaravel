@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //route admin
-Route::resource('adminpage',App\Http\Controllers\HomeController::class);
+Route::resource('home',App\Http\Controllers\HomeController::class);
 
 //rute baru
 Route::resource('category', App\Http\Controllers\CategoryController::class);
