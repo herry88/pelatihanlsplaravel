@@ -40,6 +40,29 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $h = Product::find($request->input("product_id"));
+
+        $d = new Order;
+        $d->product_id = $request->input("product_id");
+        // if ($h->stok < $request->input("jumlah")) {
+        //     return redirect()->route("transaksi.index")->with("alertBlock", "Stok hanya tersisa " . $h->stok);
+        // }
+
+        // if ($request->input("jumlah") < 1) {
+        //     return redirect()->route("transaksi.index")->with("alertBlock", "Masukkan jumlah barang yang ingin Anda beli!");
+        // }
+        $d->jumlah = $request->input("jumlah");
+        $d->user_id = \Auth::user()->id;
+
+
+        $d->sub_total = $request->input("jumlah");
+        $d->status = 1;
+
+
+        $d->save();
+        // dd($d);
+
+        return redirect()->route("transaksi.index");
     }
 
     /**
