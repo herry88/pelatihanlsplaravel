@@ -7,7 +7,8 @@
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li><a class="nav-link" href="#"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
+        <li><a class="nav-link" href="{{ route('home') }}"><i class="far fa-square"></i> <span>Dashboard</span></a>
+        </li>
 
         <li class="menu-header">Data Menu</li>
         @if (Auth::user()->level == 'admin')
