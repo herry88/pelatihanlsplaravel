@@ -21,11 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//rute baru
+Route::resource('category', App\Http\Controllers\CategoryController::class)->middleware('is_admin');
 
-Route::middleware(['middleware', 'admin'])->group(function () {
-    //rute baru
-    Route::resource('category', App\Http\Controllers\CategoryController::class);
-
-    //rute product
-    Route::resource('product', App\Http\Controllers\ProductController::class)->middleware('is_admin');
-});
+//rute product
+Route::resource('product', App\Http\Controllers\ProductController::class)->middleware('is_admin');
