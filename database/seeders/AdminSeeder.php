@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use DB;
 use App\Models\User;
 
 class AdminSeeder extends Seeder
@@ -16,22 +15,24 @@ class AdminSeeder extends Seeder
     public function run()
     {
         //data dummy user
-        $admins = [
+        $users = [
             [
                 'name' => 'admin',
                 'email' => 'admin@seeder.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('password'),
+                'email_verified_at'=>now(),
+                'level' => 'admin',
+                'password' => bcrypt('passwordadmin')
             ],
             [
                 'name' => 'kasir',
                 'email' => 'kasir@seeder.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('password'),
-            ]
+                'email_verified_at'=>now(),
+                'level' => 'kasir',
+                'password' => bcrypt('passwordkasir')
+            ],
         ];
-        foreach ($admins as $admin) {
-            User::create($admin);
+        foreach ($users as $user){
+            User::create($user);
         }
     }
 }
