@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -14,9 +15,16 @@ class OrderController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         //redirect to order page
         return view('layouts.order.index');
 
+=======
+        $d['produks'] = Product::orderBy("name_product", "ASC")->get();
+        $d['carts'] = Order::where('user_id', \Auth::user()->id)->where('status', 1)->orderBy("id", "DESC")->get();
+        $d['totalCarts'] = Order::where("user_id", \Auth::user()->id)->where("status", 1)->sum('sub_total');
+        return view("layouts.cart.index", $d);
+>>>>>>> 70a5d6ea5410ea4e58b9b5c40bfbd17e36771484
     }
 
     /**
@@ -38,6 +46,29 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $h = Product::find($request->input("product_id"));
+
+        $d = new Order;
+        $d->product_id = $request->input("product_id");
+        // if ($h->stok < $request->input("jumlah")) {
+        //     return redirect()->route("transaksi.index")->with("alertBlock", "Stok hanya tersisa " . $h->stok);
+        // }
+
+        // if ($request->input("jumlah") < 1) {
+        //     return redirect()->route("transaksi.index")->with("alertBlock", "Masukkan jumlah barang yang ingin Anda beli!");
+        // }
+        $d->jumlah = $request->input("jumlah");
+        $d->user_id = \Auth::user()->id;
+
+
+        $d->sub_total = $request->input("jumlah");
+        $d->status = 1;
+
+
+        $d->save();
+        // dd($d);
+
+        return redirect()->route("transaksi.index");
     }
 
     /**

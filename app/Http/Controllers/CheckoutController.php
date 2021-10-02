@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Checkout;
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class CheckoutController extends Controller
 {
@@ -15,6 +16,10 @@ class CheckoutController extends Controller
     public function index()
     {
         //
+        $d['carts'] = Order::where('user_id', \Auth::user()->id)->where('status', 1)->orderBy("id", "DESC")->get();
+        $d['totalCarts'] = Order::where("user_id", \Auth::user()->id)->where("status", 1)->sum('sub_total');
+
+        return view("app.checkout.index", $d);
     }
 
     /**

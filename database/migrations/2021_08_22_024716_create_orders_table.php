@@ -18,8 +18,13 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('jumlah');
+<<<<<<< HEAD
             $table->bigInteger('sub_total');
             $table->bigInteger('status')->default(0);
+=======
+            $table->bigInteger('sub_total')->nullable();
+            $table->bigInteger('status')->default('0');
+>>>>>>> 70a5d6ea5410ea4e58b9b5c40bfbd17e36771484
             $table->timestamps();
         });
     }

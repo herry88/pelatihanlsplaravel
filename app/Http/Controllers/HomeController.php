@@ -32,6 +32,7 @@ class HomeController extends Controller
 <<<<<<< HEAD
         return view('home');
     }
+<<<<<<< HEAD
 =======
         //passing data user, categories, product
         $d['categories'] = Category::count();
@@ -42,4 +43,12 @@ class HomeController extends Controller
 
 
 >>>>>>> multiAuth
+=======
+
+    public function adminPage(){
+        return view('layouts.adminHome');
+    }
+
+
+>>>>>>> 70a5d6ea5410ea4e58b9b5c40bfbd17e36771484
 }
