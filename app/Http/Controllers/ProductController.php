@@ -53,6 +53,8 @@ class ProductController extends Controller
             return redirect()->back();
         }
 
+
+
     }
 
     /**
@@ -89,7 +91,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         //function update product
+=======
+        //
+>>>>>>> multiAuth
         $pr = Product::find($id);
         $pr->name_product = $request->input('name_product');
         $pr->description = $request->input('description');
@@ -101,7 +107,10 @@ class ProductController extends Controller
         } else{
             return redirect()->back();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> multiAuth
     }
 
     /**
@@ -116,5 +125,6 @@ class ProductController extends Controller
         $p = Product::find($id);
         $p->delete();
         return redirect()->route('product.index');
+
     }
 }
