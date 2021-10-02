@@ -37,6 +37,20 @@
                     </form>
                 </div>
             </div>
+            <div class="col-12 col-md-8">
+                <div class="card card-primary">
+                    <div class="card-header d-flex justify-content-between">
+                        <h4>Cart</h4>
+                    </div>
+                    <div class="card card-body">
+                        <div class="table-resposive">
+                            <table class="table table-striped">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
