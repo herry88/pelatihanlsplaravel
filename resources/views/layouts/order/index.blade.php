@@ -45,8 +45,31 @@
                     <div class="card card-body">
                         <div class="table-resposive">
                             <table class="table table-striped">
-
+                                <thead>
+                                    <tr>
+                                        <th>no</th>
+                                        <th>nama produk</th>
+                                        <th>jumlah</th>
+                                        <th colspan="2">Total Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
                             </table>
+                        </div>
+                        <hr>
+                        <div class="text-right">
+                            <p class="h5">Total Harga</p>
+                        </div>
+                        <hr>
+                        <div class="card card-footer text-right">
+                            <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a>
                         </div>
                     </div>
                 </div>
