@@ -17,7 +17,7 @@
                                 <h4>Total user</h4>
                             </div>
                             <div class="card-body">
-                                <h5>nanti aja</h5>
+                                <h5>{{ $user }}</h5>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                 <h4>Total Product</h4>
                             </div>
                             <div class="card-body">
-                                <h5>nanti aja</h5>
+                                <h5>{{ $product }}</h5>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4>Total Categories</h4>
                             </div>
                             <div class="card-body">
-                                <h5>nanti aja</h5>
+                                <h5>{{ $categories }}</h5>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,8 @@
                     <div class="hero text-white hero-bg-image hero-bg-parallax">
                         <div class="hero-inner">
                             <h2>Selamat Datang, {{ Auth::user()->name }} !</h2>
-                            <p class="lead">hak akses {{ Auth::user()->level }} telah diberikan kepada akun Anda!
+                            <p class="lead">hak akses {{ Auth::user()->level }} telah diberikan kepada akun
+                                Anda!
                             </p>
                         </div>
                     </div>
