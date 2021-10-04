@@ -39,17 +39,17 @@
             </div>
             <div class="col-12 col-md-8">
                 <div class="card card-primary">
-                    <div class="card-header d-flex justify-content-between">
+                    <div class="card card-header ">
                         <h4>Cart</h4>
                     </div>
                     <div class="card card-body">
-                        <div class="table-resposive">
+                        <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>no</th>
-                                        <th>nama produk</th>
-                                        <th>jumlah</th>
+                                        <th>No</th>
+                                        <th>Nama Produk</th>
+                                        <th>Jumlah</th>
                                         <th colspan="2">Total Harga</th>
                                     </tr>
                                 </thead>
@@ -65,7 +65,7 @@
                         </div>
                         <hr>
                         <div class="text-right">
-                            <p class="h5">Total Harga</p>
+                            <h3>Total Harga</h3>
                         </div>
                         <hr>
                         <div class="card card-footer text-right">
