@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+//rute get api category data
+Route::resource('get-all-category', App\Http\Controllers\Api\ApiCategoryController::class);
+Route::resource('get-all-product', App\Http\Controllers\Api\ApiProductController::class);

@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-
-class ApiCategoryController extends Controller
+use App\Models\Product;
+use DB;
+class ApiProductController extends Controller
 {
-    //get-all category Data
+    //
     public function index(){
-        return Category::all();
+        return Product::with('category')->get()->toArray();
+
+
     }
 }
