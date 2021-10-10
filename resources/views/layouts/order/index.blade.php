@@ -37,6 +37,48 @@
                     </form>
                 </div>
             </div>
+            <div class="col-12 col-md-8">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4>Cart Order</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Produk</th>
+                                        <th>Jumlah</th>
+                                        <th colspan="2">Total Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>tes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="text-right">
+                            <p class="h5">
+                                Total Harga : IDR
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Checkout
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
