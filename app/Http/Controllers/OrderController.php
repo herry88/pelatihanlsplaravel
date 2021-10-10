@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -14,9 +16,11 @@ class OrderController extends Controller
      */
     public function index()
     {
+        //passing data
+        $product = Product::all();
+        $cart = Order::where('user_id', Auth::user()->id)->where('status', '0')->get();
         //redirect to order page
-        return view('layouts.order.index');
-
+        return view('layouts.order.index', compact('product', 'cart'));
     }
 
     /**
@@ -26,7 +30,6 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,9 +38,17 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        //function store
+        //function ke cart
+        if ($r->product_id == 0) {
+            return redirect()->route('order.index')->with('pesan', 'Anda Belum Memilih Product');
+        }
+        if($r->jumlah == 0){
+            return redirect()->route('order.index')->with('pesan','Anda Belum Isi Jumlah');
+        }
+        return view('layouts.order.index');
     }
 
     /**
