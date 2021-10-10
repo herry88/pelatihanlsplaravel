@@ -45,10 +45,22 @@ class OrderController extends Controller
         if ($r->product_id == 0) {
             return redirect()->route('order.index')->with('pesan', 'Anda Belum Memilih Product');
         }
-        if($r->jumlah == 0){
-            return redirect()->route('order.index')->with('pesan','Anda Belum Isi Jumlah');
+        $product_check = Order::where('product_id', $r->product_id)->where('status', '0')->first();
+        $price = Product::where('id', $r->product_id)->first();
+        if ($product_check == null) {
+            $order = new Order;
+            $order->product_id = $r->product_id;
+            $order->jumlah = $r->jumlah;
+        } else {
+            $order = Order::where('product_id', $r->product_id)->where('status', '0')->first();
+            $order->product_id = $r->product_id;
+            $order->jumlah += $r->jumlah;
         }
-        return view('layouts.order.index');
+        $order->sub_total = $price->price * $r->jumlah;
+        $order->user_id = Auth::user()->id;
+        $order->save();
+        // return view('layouts.order.index');
+        dd($order);
     }
 
     /**

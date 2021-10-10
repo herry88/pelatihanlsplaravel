@@ -14,7 +14,7 @@
             <div class="alert alert-primary fade-show ">
                 <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span
                         aria-hidden="true">&times;</span>
-                </button> <strong>{{ $msge }}</strong>
+                </button> <strong>{{ $message }}</strong>
             </div>
 
         @endif
