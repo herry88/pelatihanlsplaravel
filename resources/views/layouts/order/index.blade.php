@@ -9,18 +9,31 @@
         <div class="section-header">
             <h1>Cart</h1>
         </div>
+        @if ($message = Session::get('pesan'))
+            <div class="alert alert-primary">
+                <button class="close">
+                    <span>&times;</span>
+                </button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
         <div class="row">
             <div class="col-12 col-md-4">
                 <div class="card card-primary">
-                    <form action="#" method="post">
+                    <form action="{{ route('order.store') }}" method="post">
+                        @csrf
+                        @method('POST')
                         <div class="card-header">
                             <h4>Pilih Produk</h4>
                         </div>
                         <div class="card-body">
                             <label for="">Nama Produk</label>
-                            <select name="nama_produk" class="form-control">
+                            <select name="product_id" class="form-control">
                                 <option value="0">- Pilih Produk</option>
-                                <option value="1">Test</option>
+                                @foreach ($product as $pr)
+                                    <option value="{{ $pr->id }}">{{ $pr->name_product }} - Rp. {{ $pr->price }}
+                                    </option>
+                                @endforeach
                             </select>
                             <div class="invalid-feedback">
                                 form nama produk harus di isi
