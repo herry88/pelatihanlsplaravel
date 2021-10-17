@@ -56,11 +56,11 @@ class OrderController extends Controller
             $order->product_id = $r->product_id;
             $order->jumlah += $r->jumlah;
         }
-        $order->sub_total = $price->price * $r->jumlah;
+        $order->sub_total += $price->price * $r->jumlah;
         $order->user_id = Auth::user()->id;
         $order->save();
-        // return view('layouts.order.index');
-        dd($order);
+        return redirect()->route('order.index');
+        // dd($order);
     }
 
     /**
