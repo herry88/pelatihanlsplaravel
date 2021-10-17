@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    public function cart(){
-        return $this->hasMany(Product::class,'product_id');
+    protected $primaryKey = 'id';
+    public function cartproduct(){
+        return $this->hasMany(Product::class,'id');
     }
 }
